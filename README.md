@@ -7,7 +7,7 @@
 
 ### Method Choosen to implement
 
-- Since the only requiirement was to build onboarding page, I have chosen to use routes to build different pages of the onboarding process.
+- Since the only requirement was to build an onboarding page, I have chosen to use routes to build different pages of the onboarding process.
 
 ### Other Method I could have used
 
