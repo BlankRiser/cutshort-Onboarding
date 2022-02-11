@@ -11,6 +11,18 @@ const Progress = () => {
   const incomplete =
     "w-8 h-8 border-[1px] border-gray-500/25 text-gray-500 rounded-full flex justify-center items-center cursor-pointer";
 
+  const sidesCompleted = `relative 
+  before:content-[''] before:absolute before:border-b-[1px] before:border-indigo-600 before:w-[1.125rem] before:bottom-1/2 before:left-full after:absolute after:border-b-[1px] after:border-indigo-600 after:w-[1.5rem] after:bottom-1/2 after:right-full`;
+
+  const completedLeftSide = `
+  relative 
+  after:content-['']  after:absolute after:border-b-[1px] after:border-indigo-600 after:w-[1.5rem] after:bottom-1/2 after:right-full
+  `;
+
+  const completedRightSide = `
+  relative 
+  before:content-[''] before:absolute before:border-b-[1px] before:border-indigo-600 before:w-[1.125rem] before:bottom-1/2 before:left-full`;
+
   let colorFlag = 0;
 
   if (location.pathname === "/") {
@@ -24,33 +36,63 @@ const Progress = () => {
   }
 
   return (
-    <ul className="p-2 flex flex-row gap-6 mb-16">
-      <li
-        className={colorFlag < 1 ? incomplete : completed}
-        onClick={() => navigate("/")}
+    <section className="inline-block w-auto">
+      <ul
+        className="p-2 gap-10 mb-16 flex flex-row 
+        
+        " //
       >
-        1
-      </li>
-      <li
-        className={colorFlag < 2 ? incomplete : completed}
-        onClick={() => navigate("/second")}
-      >
-        2
-      </li>
-      <li
-        className={colorFlag < 3 ? incomplete : completed}
-        onClick={() => navigate("/third")}
-      >
-        3
-      </li>
-      <li
-        className={colorFlag < 4 ? incomplete : completed}
-        onClick={() => navigate("/fourth")}
-      >
-        4
-      </li>
-    </ul>
+        <li
+          className={
+            colorFlag < 1
+              ? ` ${incomplete} 
+          
+            `
+              : `  ${completed} ${completedRightSide}`
+          }
+          onClick={() => navigate("/")}
+        >
+          <span>1</span>
+        </li>
+        <li
+          className={
+            colorFlag < 2
+              ? ` ${incomplete}
+          
+            `
+              : `  ${completed} ${sidesCompleted}`
+          }
+          onClick={() => navigate("/second")}
+        >
+          <span>2</span>
+        </li>
+        <li
+          className={
+            colorFlag < 3
+              ? ` ${incomplete}`
+              : `  ${completed} ${sidesCompleted}`
+          }
+          onClick={() => navigate("/third")}
+        >
+          <span>3</span>
+        </li>
+        <li
+          className={
+            colorFlag < 4
+              ? ` ${incomplete}`
+              : `  ${completed} ${completedLeftSide}`
+          }
+          onClick={() => navigate("/fourth")}
+        >
+          <span>4</span>
+        </li>
+      </ul>
+    </section>
   );
 };
 
 export default Progress;
+
+// relative
+//           before:content-[''] before:absolute before:border-b-[1px] before:border-indigo-600 before:w-[1.5rem] before:bottom-1/2 before:left-full
+//   after:content-[''] after:absolute after:border-b-[1px] after:border-indigo-600 after:w-[1.5rem] after:bottom-1/2 after:right-full

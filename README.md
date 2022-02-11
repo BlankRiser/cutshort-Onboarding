@@ -12,3 +12,8 @@
 ### Other Method I could have used
 
 - I could have made it such that after each page is done the user is redirected to the next component without any changes in the route itself.
+
+### Resources
+
+- https://stackoverflow.com/questions/39648171/connecting-dots-with-an-ordered-list-in-css3
+- https://stackoverflow.com/questions/34274354/creating-lis-as-horizontal-connected-dots
