@@ -14,14 +14,26 @@ const Progress = () => {
   const sidesCompleted = `relative 
   before:content-[''] before:absolute before:border-b-[1px] before:border-indigo-600 before:w-[1.125rem] before:bottom-1/2 before:left-full after:absolute after:border-b-[1px] after:border-indigo-600 after:w-[1.5rem] after:bottom-1/2 after:right-full`;
 
+  const sidesIncomplete = `relative 
+  before:content-[''] before:absolute before:border-b-[1px] before:border-gray-500/25 before:w-[1.125rem] before:bottom-1/2 before:left-full after:absolute after:border-b-[1px] after:border-gray-500/25 after:w-[1.5rem] after:bottom-1/2 after:right-full`;
+
   const completedLeftSide = `
   relative 
   after:content-['']  after:absolute after:border-b-[1px] after:border-indigo-600 after:w-[1.5rem] after:bottom-1/2 after:right-full
   `;
 
+  const inccompleteLeftSide = `
+  relative 
+  after:content-['']  after:absolute after:border-b-[1px] after:border-gray-500/25 after:w-[1.5rem] after:bottom-1/2 after:right-full
+  `;
+
   const completedRightSide = `
   relative 
   before:content-[''] before:absolute before:border-b-[1px] before:border-indigo-600 before:w-[1.125rem] before:bottom-1/2 before:left-full`;
+
+  const incompleteRightSide = `
+  relative 
+  before:content-[''] before:absolute before:border-b-[1px] before:border-gray-500/25 before:w-[1.125rem] before:bottom-1/2 before:left-full`;
 
   let colorFlag = 0;
 
@@ -45,9 +57,7 @@ const Progress = () => {
         <li
           className={
             colorFlag < 1
-              ? ` ${incomplete} 
-          
-            `
+              ? ` ${incomplete} ${incompleteRightSide}`
               : `  ${completed} ${completedRightSide}`
           }
           onClick={() => navigate("/")}
@@ -57,9 +67,7 @@ const Progress = () => {
         <li
           className={
             colorFlag < 2
-              ? ` ${incomplete}
-          
-            `
+              ? ` ${incomplete} ${sidesIncomplete}`
               : `  ${completed} ${sidesCompleted}`
           }
           onClick={() => navigate("/second")}
@@ -69,7 +77,7 @@ const Progress = () => {
         <li
           className={
             colorFlag < 3
-              ? ` ${incomplete}`
+              ? ` ${incomplete} ${sidesIncomplete}`
               : `  ${completed} ${sidesCompleted}`
           }
           onClick={() => navigate("/third")}
@@ -79,7 +87,7 @@ const Progress = () => {
         <li
           className={
             colorFlag < 4
-              ? ` ${incomplete}`
+              ? ` ${incomplete} ${inccompleteLeftSide}`
               : `  ${completed} ${completedLeftSide}`
           }
           onClick={() => navigate("/fourth")}
